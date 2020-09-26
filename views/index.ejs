@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Barista App</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="jumbotron">
+                <div class="row justify-content-center">
+                    <h1>Poop Brew Coffee</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <img src="https://media3.giphy.com/media/687qS11pXwjCM/giphy.gif" class="img-fluid h-25 d-inline-block" style="width: 310px" alt="meme fiends site gif">
+                </div>
+                <br>
+                <div class="row justify-content-center">
+                    <div class="btn-group">
+                        <a href="/login" class="btn btn-secondary btn-lg" role="button"></span>Login</a>
+                        <a href="/signup" class="btn btn-secondary btn-lg" role="button"></span>Signup</a>
+                    </div>
+                </div>
+            </div>
+            <h2 class="text-center col">Add an Order</h2>
+            <br>
+            <div class="container">
+                <form action="/orders" method="post">
+                    <div class="form-row">
+                        <div class="col input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Name and Order</span>
+                            </div>
+                            <input type="text" placeholder="John Doe" class="form-control" name="name" >
+                            <input type="text" placeholder="Venti Cinnamon Spin Latte" class="form-control" name="order" >
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
