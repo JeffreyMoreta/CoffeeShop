@@ -7,31 +7,34 @@
     </head>
     <body>
         <div class="main">
-            <div class="jumbotron">
+            <div class="jumbotron" style="background-color: #efefef">
                 <div class="row justify-content-center">
-                    <h1>Poop Brew Coffee</h1>
+                    <img src="https://media3.giphy.com/media/687qS11pXwjCM/giphy.gif" class="img-fluid rounded-circle" style="width: 240px;" alt="meme fiends site gif">
                 </div>
                 <div class="row justify-content-center">
-                    <img src="https://media3.giphy.com/media/687qS11pXwjCM/giphy.gif" class="img-fluid h-25 d-inline-block" style="width: 310px" alt="meme fiends site gif">
+                    <h1>Poop Brew Coffee</h1>
                 </div>
                 <br>
                 <div class="row justify-content-center">
                     <div class="btn-group">
-                        <a href="/login" class="btn btn-secondary btn-lg" role="button"></span>Login</a>
-                        <a href="/signup" class="btn btn-secondary btn-lg" role="button"></span>Signup</a>
+                        <a href="/login" class="btn btn-secondary btn-lg shadow" role="button"></span>Login</a>
+                        <a href="/signup" class="btn btn-secondary btn-lg shadow" role="button"></span>Signup</a>
                     </div>
                 </div>
             </div>
             <h2 class="text-center col">Add an Order</h2>
             <br>
-            <div class="container">
+            <div class="container p-3 rounded shadow">
                 <form action="/orders" method="post">
                     <div class="form-row">
                         <div class="col input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Name and Order</span>
+                                <span class="input-group-text">Name</span>
                             </div>
                             <input type="text" placeholder="John Doe" class="form-control" name="name" >
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Order</span>
+                            </div>
                             <input type="text" placeholder="Venti Cinnamon Spin Latte" class="form-control" name="order" >
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -1,61 +1,71 @@
 <!doctype html>
 <html>
-<head>
-    <title>Barista App</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-
-    <div class="page-header text-center">
-      <% if (user.local.email) { %>
-        <h1>Hello: <span id="barista"><%= user.local.email %></span></h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        <% } %>
-    </div>
-
-<section class="flex">
-        <!-- ORDER INPUT & TO BE COMPLETED -->
-        <div class="ordered">
-          <h3>ORDERS</h3>
-
-          <ul class="orders">
-          <% for(var i=0; i<orders.length; i++) { %>
-              <% if (orders[i].complete == "no") { %>
-            <li class="orderCurr">
-              <span><%= orders[i].name %></span>
-              <span><%= orders[i].order %></span>
-              <span><i class="fa fa-check" aria-hidden="true"></i></span>
-              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-            </li>
-          <% } %>
-          </ul>
-    <% } %>
-  </div>
-
-        <!-- COMPLETED ORDERS -->
-        <div class="completed">
-          <h3>COMPLETED</h3>
-          <ul class="orders">
-
-          <% for(var i=0; i<orders.length; i++) {%>
-     <% if (orders[i].complete === "yes") { %>
-            <li class="orderComp">
-              <span><%= orders[i].name %></span>
-              <span><%= orders[i].order %></span>
-              <span><%= orders[i].barista %></span>
-              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-            </li>
-          <% } %>
-          </ul>
-<% } %>
-    </div>
-
-
-</section>
-<script src="main.js"></script>
-
-</body>
+    <head>
+        <title>Barista App</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="navbar bg-dark text-white shadow">
+            <div class="container d-flex justify-content-between">
+                <p id="barista" class="mt-3"><%= user.local.email.split("@")[0].split("").map((x, i) => i === 0 ? x.toUpperCase() : x).join("") %></p>
+                <a href="/logout" class="btn btn-secondary">Logout</a>
+            </div>
+        </div>
+        <div class="container">
+            <!-- ORDER INPUT & TO BE COMPLETED -->
+            <div class="ordered justify-content-center mt-3 border-bottom">
+                <h3>ORDERS</h3>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Customer</th>
+                            <th class="text-center">Order</th>
+                            <th class="text-center">Complete</th>
+                            <th class="text-center">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<orders.length; i++) { %>
+                            <% if (orders[i].complete == "no") { %>
+                                <tr class="orderCurr">
+                                    <td class="text-center"><%= orders[i].name %></td>
+                                    <td class="text-center"><%= orders[i].order %></td>
+                                    <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                    <td class="text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <!-- COMPLETED ORDERS -->
+            <div class="completed justify-content-center mt-3">
+                <h3>COMPLETED</h3>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Customer</th>
+                            <th class="text-center">Order</th>
+                            <th class="text-center">Caffine Artist</th>
+                            <th class="text-center">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<orders.length; i++) { %>
+                            <% if (orders[i].complete == "yes") { %>
+                                <tr class="orderComp">
+                                    <td class="text-center"><%= orders[i].name %></td>
+                                    <td class="text-center"><%= orders[i].order %></td>
+                                    <td class="text-center"><%= orders[i].barista %></td>
+                                    <td class="text-center"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
 </html>
